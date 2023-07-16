@@ -87,3 +87,26 @@
     background-color: #808080;
     text-align: center;
 }
+.custom-scrollbar {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #aaa #ddd;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #888;
+}
