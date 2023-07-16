@@ -1,5 +1,5 @@
 // add class navbarDark on navbar scroll
-let text = 'Hey, I am Venkat Sai Rama\u{1F91D}'; 
+let text = 'Hey, I am Venkat Sai Rama \u{1F91D}'; 
 let i = 0;
 let speed = 100; 
 let typewriterSound = document.getElementById("typewriter_sound");
@@ -34,3 +34,25 @@ const menuToggle = document.getElementById('navbarSupportedContent')
 navLinks.forEach((l) => {
     l.addEventListener('click', () => { new bootstrap.Collapse(menuToggle).toggle() })
 })
+function sendMail() {
+  var params = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    message: document.getElementById("message").value,
+  };
+
+  const serviceID = "service_rxkka5v";
+  const templateID = "template_75eozys";
+
+    emailjs.send(serviceID, templateID, params)
+    .then(res=>{
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+        console.log(res);
+        alert("Your message sent successfully!!")
+
+    })
+    .catch(err=>console.log(err));
+
+}
