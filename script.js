@@ -61,7 +61,7 @@ function sendMail() {
       document.getElementById("email").value = "";
       document.getElementById("message").value = "";
       console.log(res);
-      alert("Thank you very much for your email. We will typically reach out to you within an hour.");
+      alert("Thank you very much for your email. I will typically reach out to you within an hour.");
     })
     .catch((err) => console.log(err));
 }
