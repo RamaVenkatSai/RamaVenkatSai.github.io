@@ -35,24 +35,33 @@ navLinks.forEach((l) => {
     l.addEventListener('click', () => { new bootstrap.Collapse(menuToggle).toggle() })
 })
 function sendMail() {
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var message = document.getElementById("message").value;
+
+  // Check if any field is empty
+  if (!name || !email || !message) {
+    alert("Please fill in all the fields");
+    return;
+  }
+
   var params = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    message: document.getElementById("message").value,
+    name: name,
+    email: email,
+    message: message,
   };
 
   const serviceID = "service_rxkka5v";
   const templateID = "template_75eozys";
 
-    emailjs.send(serviceID, templateID, params)
-    .then(res=>{
-        document.getElementById("name").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("message").value = "";
-        console.log(res);
-        alert("Thank you very much for your email will typically reach out to you in an hour")
-
+  emailjs
+    .send(serviceID, templateID, params)
+    .then((res) => {
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("message").value = "";
+      console.log(res);
+      alert("Thank you very much for your email. We will typically reach out to you within an hour.");
     })
-    .catch(err=>console.log(err));
-
+    .catch((err) => console.log(err));
 }
